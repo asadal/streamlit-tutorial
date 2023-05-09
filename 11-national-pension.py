@@ -73,8 +73,9 @@ class PensionData():
 
 @st.cache
 def read_pensiondata():
-    data = PensionData('https://www.dropbox.com/s/nxeo1tziv05ejz7/national-pension.csv?dl=1')
-    return data
+    return PensionData(
+        'https://www.dropbox.com/s/nxeo1tziv05ejz7/national-pension.csv?dl=1'
+    )
 
 data = read_pensiondata()
 company_name = st.text_input('회사명을 입력해 주세요', placeholder='검색할 회사명 입력')

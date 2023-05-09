@@ -28,10 +28,7 @@ class CompletionExecutor:
 
     def execute(self, completion_request):
         res = self._send_request(completion_request)
-        if res['status']['code'] == '20000':
-            return res['result']['text']
-        else:
-            return 'Error'
+        return res['result']['text'] if res['status']['code'] == '20000' else 'Error'
 
 
 config = configparser.ConfigParser()
