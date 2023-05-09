@@ -27,10 +27,7 @@ class CompletionExecutor:
 
     def execute(self, completion_request):
         res = self._send_request(completion_request)
-        if res['status']['code'] == '20000':
-            return res['result']['text']
-        else:
-            return 'Error'
+        return res['result']['text'] if res['status']['code'] == '20000' else 'Error'
 
 config = configparser.ConfigParser()
 config.sections()
@@ -44,12 +41,7 @@ completion_executor = CompletionExecutor(
 )
 
 st.title('MBTI 대백과사전')
-question = st.text_input(
-    '질문', 
-    placeholder='질문을 입력해 주세요'
-)
-
-if question:
+if question := st.text_input('질문', placeholder='질문을 입력해 주세요'):
     preset_text = f'MBTI에 대한 지식을 기반으로, 아래의 질문에 답해보세요.\n\n질문:{question}'
 
     request_data = {

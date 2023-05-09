@@ -3,10 +3,7 @@ import pandas as pd
 from datetime import datetime as dt
 import datetime
 
-# 버튼 클릭
-button = st.button('버튼을 눌러보세요')
-
-if button:
+if button := st.button('버튼을 눌러보세요'):
     st.write(':blue[버튼]이 눌렸습니다 :sparkles:')
 
 
@@ -25,10 +22,7 @@ st.download_button(
     mime='text/csv'
 )
 
-# 체크 박스
-agree = st.checkbox('동의 하십니까?')
-
-if agree:
+if agree := st.checkbox('동의 하십니까?'):
     st.write('동의 해주셔서 감사합니다 :100:')
 
 # 라디오 선택 버튼
